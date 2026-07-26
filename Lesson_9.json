@@ -1,0 +1,254 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "817221c9",
+   "metadata": {},
+   "source": [
+    "# L9: Building LLM prompts with variables"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "36029c06",
+   "metadata": {},
+   "source": [
+    "In the next cell, you will import the function `print_llm_response` that uses an LLM with an instruction that you provide as a string and displays the result."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "cc237f34",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from helper_functions import print_llm_response"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3074c1f9",
+   "metadata": {},
+   "source": [
+    "Basically, you can use that function as if you were asking a chatbot. You just need to provide your instructions as a string. For instance, you can ask \"What is the capital of France?\" using the following code:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "afcf6686",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The capital of France is Paris.\n"
+     ]
+    }
+   ],
+   "source": [
+    "print_llm_response(\"What is the capital of France?\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7e164d69",
+   "metadata": {},
+   "source": [
+    "Let's ask the LLM for the lifestyle description for Otto Matic, whose name is stored in `name`, if he were a `dog_age` years old dog."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "196644ca",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "name = \"Otto Matic\"\n",
+    "dog_age = 21/7"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "ad18f441",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "At 3.0 years old, a dog is in the young adult stage. This means Otto Matic would likely have high energy, be playful, and curious. He would be physically mature, mentally alert, and socially confident. Interests might include regular exercise, interactive play, and exploring new environments. Behaviorally, he would be well past puppy training challenges but still active and eager to engage with people and other dogs.\n"
+     ]
+    }
+   ],
+   "source": [
+    "print_llm_response(f\"\"\"If {name} were a dog, he would be {dog_age} years old.\n",
+    "Describe what life stage that would be for a dog and what that might \n",
+    "entail in terms of energy level, interests, and behavior.\"\"\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8349cb53",
+   "metadata": {},
+   "source": [
+    "<b>You just used AI with your own variables!</b> You used an LLM with instructions that included variables you defined in this notebook.\n",
+    "\n",
+    "<b>Congratulations 🎉🎉🎉</b>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "51181411",
+   "metadata": {},
+   "source": [
+    "## Variable names restrictions"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "89d94522",
+   "metadata": {},
+   "source": [
+    "The following variable names also have some problems. Try to fix them yourself or use the help from the chatbot."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "af96e951",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "driver = \"unicorn\"\n",
+    "drivers_vehicle = \"colorful, asymmetric dinosaur car\"\n",
+    "favorite_planet = \"Pluto\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "59a3a881",
+   "metadata": {},
+   "source": [
+    "Now, update the next cell with any changes you made in the previous cell."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "02b7e02c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "In the sparkling land of Star Meadow, a unicorn named Luna was preparing for the big race: the Pluto Champion Cup. Luna’s mane shimmered with all the colors of the rainbow, and her hooves sparkled like diamonds. She was fast, graceful, and ready to win.\n",
+      "\n",
+      "But this year, Luna had a new challenger. It wasn’t another unicorn—it was a colorful, asymmetric dinosaur car named DinoDash! DinoDash was bright green with purple spots, one big wheel in front, and two smaller wheels in the back. It roared like a T-Rex and zoomed like lightning.\n",
+      "\n",
+      "The race track twisted through glowing forests, over sparkling rivers, and around giant crystal mountains. The crowd cheered as Luna and DinoDash lined up at the start.\n",
+      "\n",
+      "“Ready, set, go!” shouted the announcer.\n",
+      "\n",
+      "Luna galloped forward, her hooves barely touching the ground. DinoDash’s engine roared, and it sped ahead with a burst of power. The two raced neck and neck, twisting through the forest. Luna’s horn glowed, lighting the path, while DinoDash’s wheels spun wildly, kicking up colorful dust.\n",
+      "\n",
+      "At the river crossing, Luna leapt gracefully over the water. DinoDash splashed through, sending rainbows into the sky. Around the crystal mountains, DinoDash took a sharp turn, but Luna’s speed and magic helped her catch up.\n",
+      "\n",
+      "In the final stretch, Luna and DinoDash were side by side. With a burst of energy, Luna’s horn sparkled brighter than ever, and DinoDash’s engine roared louder. They crossed the finish line together!\n",
+      "\n",
+      "The crowd cheered wildly. The judges smiled and said, “It’s a tie! Both Luna and DinoDash are champions!”\n",
+      "\n",
+      "Luna and DinoDash smiled at each other, happy to share the victory. From that day on, they raced together as best friends, proving that teamwork and fun are the greatest prizes of all.\n"
+     ]
+    }
+   ],
+   "source": [
+    "print_llm_response(f\"\"\"Write me a 300 word children's story about a {driver} racing\n",
+    "a {drivers_vehicle} for the {favorite_planet} champion cup.\"\"\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "98ec7de7",
+   "metadata": {},
+   "source": [
+    "## Extra practice\n",
+    "\n",
+    "Try the exercises below to practice the concepts from this lesson. Read the comments in each cell with the instructions for each exercise.\n",
+    "\n",
+    "<b>Feel free to use the chatbot if you need help.</b>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "9fb2bd26",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "My most favorite book is 1001 Ways to Wear a Hat, but I also like 2002 Ways to Wear a Scarf\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Fix this code\n",
+    "favorite_book = \"1001 Ways to Wear a Hat\"\n",
+    "second_fav_book = \"2002 Ways to Wear a Scarf\"\n",
+    "print(f\"My most favorite book is {favorite_book}, but I also like {second_fav_book}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "407023e6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Make variables for your favorite game, movie, and food.\n",
+    "# Then use print_llm_response to ask the LLM to recommend you\n",
+    "# a new song to listen to based on your likes.\n",
+    "\n",
+    "print_llm_response(f\"\"\"\n",
+    "\n",
+    "\"\"\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "4b28cbb0",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
